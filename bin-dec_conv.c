@@ -30,7 +30,7 @@ int validar_bin(char bin[]){
 	return 0;
 }
 
-int ler_bin(char bin[]){
+void ler_bin(char bin[]){
 	printf("Digite um numero binario de 8 bits para converter para decimal natural: \n (Entradas maiores que 8 bits serao cortadas)\n");
 	scanf(" %s",bin);
 	if(validar_bin(bin))
@@ -50,6 +50,7 @@ int main(void){
 	FILE * fpB = fopen("res_bin-dec.txt","w");
 	int i,dec;
 	char bin[9],c;
+	printf("Conversor binario-decimal v1.1.\n");
 	printf("i = Iniciar programa. t = Testar com varias entradas(output em .txt).\n");
 	scanf(" %c",&c);
 	if(c=='i')
@@ -73,6 +74,5 @@ int main(void){
 	} else
 		printf("Opcao invalida.\n");
 	fclose(fpB);
-	system("pause");
 	return 0;
 }

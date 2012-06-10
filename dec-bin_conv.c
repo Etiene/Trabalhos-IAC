@@ -8,7 +8,7 @@
 //================================================================//
 // Log de alterações:                                             //
 // 09/12/2012 - V1.0: Criação do programa.                        //
-// 10/12/2012 - V1.0: Modificado para ler entradas também ao      //
+// 10/12/2012 - V1.1: Modificado para ler entradas também ao      //
 //                    invés de só usar as entradas de teste.      //
 //================================================================//
 

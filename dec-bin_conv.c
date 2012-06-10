@@ -1,5 +1,5 @@
 //================================================================//
-//=====================  DEC-BIN CONV v1.0  ======================//
+//=====================  DEC-BIN CONV v1.1  ======================//
 //== Converte números naturais decimais para binários de 8 bits ==//
 //================================================================//
 // Por: Etiene da Cruz Dalcol. Mat 1211996. T 3WA. Junho de 2012  //
@@ -8,11 +8,13 @@
 //================================================================//
 // Log de alterações:                                             //
 // 09/12/2012 - V1.0: Criação do programa.                        //
+// 10/12/2012 - V1.0: Modificado para ler entradas também ao      //
+//                    invés de só usar as entradas de teste.      //
 //================================================================//
 
 #include <stdio.h>
 
-int ler_dec(int dec){
+int validar_dec(int dec){
 	if(dec<0){
 		printf("Entrada: %d.\nERROR BRAIN 404!!! A entrada precisa ser um numero NATURAL.\n",dec);
 		return 1;
@@ -22,6 +24,13 @@ int ler_dec(int dec){
 		return 1;
 	}
 	return 0;
+}
+
+void ler_dec(int * dec){
+	printf("Entre com um numero decimal natural: \n");
+	scanf("%d",dec);
+	if(validar_dec(*dec))
+		ler_dec(dec);
 }
 
 void dec_bin(int dec, int bin[]){
@@ -38,20 +47,40 @@ void dec_bin(int dec, int bin[]){
 
 int main(void){
 	FILE * fpB = fopen("res_dec-bin.txt","w");
-	int i,j,bin[8];
-	int decs[5]={0,-5,314,15,234};
-	
-	for(i=0;i<5;i++){
-		if(ler_dec(decs[i]))
-			fprintf(fpB,"%d: Entrada invalida.\n",decs[i]);
-		else {
-			fprintf(fpB,"%d: ",decs[i]);
-			dec_bin(decs[i],bin);
-			for(j=0;j<8;j++)
-				fprintf(fpB,"%d",bin[j]);
-			fprintf(fpB,"\n");
+	int i,j,bin[8],dec;
+	char c;
+	printf("Conversor decimal-binario v1.1\n");
+	printf("i = Iniciar programa. t = Testar com varias entradas(output em .txt).\n");
+	scanf(" %c",&c);
+	if(c=='i')
+		while(1){
+			ler_dec(&dec);
+			dec_bin(dec,bin);
+			printf("Resultado: ");
+			for(i=0;i<8;i++)
+					printf("%d",bin[i]);
+				printf("\n");
+			printf("Ler outro numero? s = Sim. n = Nao\n");
+			scanf(" %c",&c);
+			if(c!='s')
+				break;
 		}
-	}
+	else if(c=='t'){
+		int decs[6]={0,-5,314,15,234,115};
+	
+		for(i=0;i<6;i++){
+			if(validar_dec(decs[i]))
+				fprintf(fpB,"%d: Entrada invalida.\n",decs[i]);
+			else {
+				fprintf(fpB,"%d: ",decs[i]);
+				dec_bin(decs[i],bin);
+				for(j=0;j<8;j++)
+					fprintf(fpB,"%d",bin[j]);
+				fprintf(fpB,"\n");
+			}
+		}
+	} else
+		printf("Opcao invalida");
 	fclose(fpB);
 	return 0;
 }

@@ -10,6 +10,7 @@
 // 09/12/2012 - V1.0: Cria��o do programa.                        //
 // 10/12/2012 - V1.1: Modificado para ler entradas tamb�m ao      //
 //                    inv�s de s� usar as entradas de teste.      //
+// 15/08/2012 - V1.1: Consertando erro boçal.                      //
 //================================================================//
 
 #include <stdio.h>

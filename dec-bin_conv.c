@@ -1,15 +1,15 @@
 //================================================================//
 //=====================  DEC-BIN CONV v1.1  ======================//
-//== Converte números naturais decimais para binários de 8 bits ==//
+//== Converte nï¿½meros naturais decimais para binï¿½rios de 8 bits ==//
 //================================================================//
 // Por: Etiene da Cruz Dalcol. Mat 1211996. T 3WA. Junho de 2012  //
-// Para: Disciplina de Introdução a Arquitetura de Computadores   //
+// Para: Disciplina de Introduï¿½ï¿½o a Arquitetura de Computadores   //
 //       ministrada por Luiz Fernando Seibel.                     //
 //================================================================//
-// Log de alterações:                                             //
-// 09/12/2012 - V1.0: Criação do programa.                        //
-// 10/12/2012 - V1.1: Modificado para ler entradas também ao      //
-//                    invés de só usar as entradas de teste.      //
+// Log de alteraï¿½ï¿½es:                                             //
+// 09/12/2012 - V1.0: Criaï¿½ï¿½o do programa.                        //
+// 10/12/2012 - V1.1: Modificado para ler entradas tambï¿½m ao      //
+//                    invï¿½s de sï¿½ usar as entradas de teste.      //
 //================================================================//
 
 #include <stdio.h>
@@ -19,7 +19,7 @@ int validar_dec(int dec){
 		printf("Entrada: %d.\nERROR BRAIN 404!!! A entrada precisa ser um numero NATURAL.\n",dec);
 		return 1;
 	}
-	else if(dec>256){
+	else if(dec>255){
 		printf("Entrada: %d.\nERROR OVERFLOW 666 FROM HELL!!! Impossivel armazenar um numero natural maior que 256 na base 10 dentro de 8 bits.\n",dec);
 		return 1;
 	}
